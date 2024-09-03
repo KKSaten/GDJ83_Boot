@@ -5,12 +5,9 @@
 
 <mapper namespace="com.lsw.app.notice.NoticeMapper">
 	<select id="getList" resultType="NoticeVO">
-		SELECT * FROM NOTICE ORDER BY BOARD_NUM DESC
+		SELECT * FROM NOTICE
+		WHERE BOARD_NUM > #{num}
+		ORDER BY BOARD_NUM DESC
 	</select>
-	
-	<insert id="test">
-		INSERT INTO NOTICE
-		VALUES (3, 'w3', 't3', 'c3', now())
-	</insert>
 	
 </mapper>
