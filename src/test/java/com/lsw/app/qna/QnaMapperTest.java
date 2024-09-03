@@ -19,6 +19,16 @@ class QnaMapperTest {
 	private QnaMapper qnaMapper;
 	
 	@Test
+	void getDetailTest() throws Exception {
+		QnaVO qnaVO = new QnaVO();
+		qnaVO.setBoardNum(110L);
+		qnaVO = qnaMapper.getDetail(qnaVO);
+		
+		assertNotNull(qnaVO);
+	}
+	
+	
+	@Test
 	void getListTest() throws Exception {
 		Pager pager = new Pager();
 		pager.setPage(1L);
