@@ -3,9 +3,11 @@ package com.lsw.app.qna;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,6 +15,7 @@ import com.lsw.app.util.Pager;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 
 
@@ -24,6 +27,16 @@ public class QnaController {
 
 	@Autowired
 	private QnaService qnaService;
+	
+	@Value("${board.qna}")
+	private String board;
+	
+	@ModelAttribute("board")
+	public String getBoard() {
+		return this.board;
+	}
+	
+	
 	
 	@GetMapping("list")
 	public void getList(Pager pager, Model model) throws Exception {
@@ -41,8 +54,8 @@ public class QnaController {
 		
 	}
 	@PostMapping("add")
-	public String add(QnaVO qnaVO) throws Exception {
-		int result = qnaService.add(qnaVO);
+	public String add(QnaVO qnaVO, MultipartFile [] attaches) throws Exception {
+		int result = qnaService.add(qnaVO, attaches);
 		
 		return "redirect:./list";
 	}
