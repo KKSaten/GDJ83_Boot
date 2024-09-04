@@ -1,6 +1,7 @@
 package com.lsw.app.qna;
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -15,6 +16,7 @@ public class QnaVO {
 	private long ref;
 	private long step;
 	private long dex;
+	private List<QnaVO> ar;
 
 
 }

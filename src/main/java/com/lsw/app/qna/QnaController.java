@@ -37,7 +37,6 @@ public class QnaController {
 	}
 	
 	
-	
 	@GetMapping("list")
 	public void getList(Pager pager, Model model) throws Exception {
 		

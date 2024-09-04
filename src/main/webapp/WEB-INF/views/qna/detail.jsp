@@ -8,30 +8,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Qna List</h1>
+	<h1>Qna Detail</h1>
 	
 	<table>
 		<thead>
 			<tr>
-				<th>Num</th>
 				<th>Title</th>
 				<th>Writer</th>
-				<th>Date</th>
+				<th>Contents</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${list}" var="vo">
-				<tr>
-					<td>${vo.boardNum}</td>
-					<td><a href="./detail?boardNum=${vo.boardNum}">${vo.boardTitle}</a></td>
-					<td>${vo.boardWriter}</td>
-					<td>${vo.createDate}</td>
-				</tr>
+			<tr>
+				<td>${vo.boardTitle}</td>
+				<td>${vo.boardWriter}</td>
+				<td>${vo.boardContents}</td>
+			</tr>
+			<c:forEach items="${vo.ar}" var="f">
+				<img src="/files/qna/${f.fileName}">
 			</c:forEach>
 				
 		</tbody>
 	</table>
-	<a href="./add">Add</a>
 	
 </body>
 </html>
