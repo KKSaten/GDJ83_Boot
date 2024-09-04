@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 
 //WebMVCConfigure 구현
 @Configuration
-@Slf4j
 public class Fileconfig implements WebMvcConfigurer {
 	
 	@Value("${app.url.path}")
@@ -24,8 +23,9 @@ public class Fileconfig implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 //		<resources mapping="/resources/**" location="/resources/" />
-//		<resources mapping="/files/**" location="D:/upload/" />
+
 		
+//		<resources mapping="/files/**" location="D:/upload/" />
 		registry.addResourceHandler(url)
 				.addResourceLocations(file);
 		

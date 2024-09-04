@@ -25,7 +25,8 @@
 				<td>${vo.boardContents}</td>
 			</tr>
 			<c:forEach items="${vo.ar}" var="f">
-				<img src="/files/qna/${f.fileName}">
+				<img src="/files/${board}/${f.fileName}">
+				<a href="./fileDown?fileNum=${f.fileNum}">${f.oriName}</a>
 			</c:forEach>
 				
 		</tbody>
