@@ -34,16 +34,17 @@ public class MemberController {
 	public void login() throws Exception {
 		
 	}
-	@PostMapping("login")
-	public String login(MemberVO memberVO, HttpSession session) throws Exception {
-		memberVO = memberService.detail(memberVO);
-		
-		if(memberVO != null) {
-			session.setAttribute("member", memberVO);
-		}
-		
-		return "redirect:../";
-	}
+	//security에서 진행됨
+//	@PostMapping("login")
+//	public String login(MemberVO memberVO, HttpSession session) throws Exception {
+//		memberVO = memberService.detail(memberVO);
+//		
+//		if(memberVO != null) {
+//			session.setAttribute("member", memberVO);
+//		}
+//		
+//		return "redirect:../";
+//	}
 	
 	
 	
