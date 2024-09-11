@@ -11,30 +11,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MemberService implements UserDetailsService{
+public class MemberService {
 	
 	@Autowired
 	private MemberMapper memberMapper;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
-		MemberVO memberVO = new MemberVO();
-		memberVO.setUsername(username);
-		
-		try {
-			memberVO = memberMapper.detail(memberVO);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return memberVO;
-	}
-	
 	
 	
 	
