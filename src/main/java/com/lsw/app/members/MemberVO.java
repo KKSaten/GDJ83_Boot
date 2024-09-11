@@ -19,7 +19,9 @@ public class MemberVO implements UserDetails {
 	private String name;
 	private String email;
 	private Date birth;
-	private boolean enabled;
+	private boolean enabled; //멤버변수의 타입이 boolean인 경우 
+							 //setter의 이름은 set + 변수명(첫글자 대문자)인데, 
+							 //getter의 이름은 is + 변수명(첫글자 대문자)가 된다. 
 	private List<RoleVO> vos;
 	
 	
@@ -55,9 +57,9 @@ public class MemberVO implements UserDetails {
 		return true;
 	}
 	
-	public boolean isEnabled() {
-		return true;
-	}
+//	public boolean isEnabled() {
+//		return true;
+//	}
 	
 	
 }

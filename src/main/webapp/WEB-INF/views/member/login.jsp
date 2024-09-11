@@ -14,17 +14,26 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-md-6 mt-5">
-
+					
 				<form method="post">
 					<div class="mb-3">
 						<label for="username" class="form-label">ID</label>
-						<input type="text" class="form-control" id="username" name="username">
+						<input type="text" class="form-control" id="username" name="username" value="admin">
 					</div>
 					
 					<div class="mb-3">
 						<label for="password" class="form-label">Password</label>
-						<input type="password" class="form-control" id="password" name="password">
+						<input type="password" class="form-control" id="password" name="password" value="admin">
 					</div>
+					
+					<div>
+						${param.message}
+					</div><br>
+					
+					<div id="checkboxDiv">
+						<input type="checkbox" id="checkbox1" name="rememberMe">
+						<label for="checkbox1">자동 로그인</label>
+					</div><br>
 					
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
