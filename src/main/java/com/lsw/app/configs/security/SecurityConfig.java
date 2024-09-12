@@ -94,6 +94,7 @@ public class SecurityConfig {
 					logout ->
 						logout
 							.logoutUrl("/member/logout") 	// 로그아웃 URL 지정 방법(1) 
+							.logoutSuccessHandler(null)
 							//RequestMatcher("url"), 로그아웃 URL 경로 지정 방법(2)
 							//.logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
 							.logoutSuccessUrl("/")			// 로그아웃에 성공하면 갈 경로 지정
@@ -127,7 +128,19 @@ public class SecurityConfig {
 							.expiredUrl("/member/check")		// session이 만료되었을 경우 리다이렉트할 URL
 							
 							
+			)//동시 세션 끝
+			
+			
+			//Social Login
+			.oauth2Login(
+					oauth2 ->
+						oauth2
+							.userInfoEndpoint(
+									user -> user.userService(memberUserService)
+							)
+							
 			)
+			
 			
 			
 			;

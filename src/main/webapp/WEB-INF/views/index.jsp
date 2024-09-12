@@ -16,7 +16,8 @@
 	
 	<sec:authorize access="!isAuthenticated()">
 		<h1>Login 하기 전</h1>
-		<a href="/member/login">로그인 페이지 이동</a>
+		<a href="/member/login">로그인 페이지 이동</a><br><br>
+		<a href="/oauth2/authorization/kakao?prompt=login">카카오 로그인 이동</a>
 	</sec:authorize>
 	
 	<sec:authorize access="isAuthenticated()">

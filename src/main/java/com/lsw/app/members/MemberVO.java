@@ -4,15 +4,17 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import lombok.Data;
 
 @Data
-public class MemberVO implements UserDetails {
+public class MemberVO implements UserDetails, OAuth2User {
 
 	private String username;
 	private String password;
@@ -24,8 +26,22 @@ public class MemberVO implements UserDetails {
 							 //getter의 이름은 is + 변수명(첫글자 대문자)가 된다. 
 	private List<RoleVO> vos;
 	
+	//Oaut2User
+	//token 정보 저장
+	private Map<String, Object> attributes;
 	
-
+	@Override
+	public Map<String, Object> getAttributes() {
+		// TODO Auto-generated method stub
+		return this.attributes;
+	}
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
@@ -60,6 +76,13 @@ public class MemberVO implements UserDetails {
 //	public boolean isEnabled() {
 //		return true;
 //	}
+	
+	
+
+	
+	
+	
+	
 	
 	
 }
