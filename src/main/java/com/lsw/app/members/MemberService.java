@@ -20,7 +20,6 @@ public class MemberService {
 	private PasswordEncoder passwordEncoder;
 	
 	
-	
 	public int add(MemberVO memberVO) throws Exception {
 		
 		memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
